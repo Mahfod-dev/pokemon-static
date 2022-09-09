@@ -2,9 +2,10 @@ import { NextPage, GetStaticProps } from 'next';
 import { useMemo } from 'react';
 import { Grid, useTheme } from '@nextui-org/react';
 import { PokemonCards } from '../components/UI';
-import { Layout } from '../components/layouts';
+
 import { pokeApi } from '../api';
 import { PokemonListResponse, SmallPokemon } from '../interfaces';
+import { Layout } from '../components/layouts/Layout';
 
 interface Props {
 	pokemons: SmallPokemon[];
@@ -14,8 +15,12 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 	const theme = useTheme();
 	const themeMemo = useMemo(() => theme, [theme]);
 
+	const onChange = (name: string) => {
+		return name;
+	};
+
 	return (
-		<Layout title='List Pokemons'>
+		<Layout title='List Pokemons' onChange={onChange}>
 			<Grid.Container gap={2} justify='flex-start'>
 				{pokemons.map(({ id, name, img }) => {
 					return (

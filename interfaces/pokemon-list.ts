@@ -3,7 +3,7 @@ export interface PokemonListResponse {
 	next?: string;
 	previous?: string;
 	results?: [];
-	pokemons: SmallPokemon;
+	pokemons: SmallPokemon[];
 }
 
 export interface SmallPokemon {
@@ -11,4 +11,5 @@ export interface SmallPokemon {
 	url: string;
 	id: number;
 	img: string;
+	
 }

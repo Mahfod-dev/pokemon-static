@@ -1,11 +1,21 @@
-import { Grid, Container, Row, Text, Input, Spacer } from '@nextui-org/react';
+import { useState, ChangeEventHandler, FormEventHandler } from 'react';
+import { Grid, Container, Row, Text, Input } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import { Switch, useTheme } from '@nextui-org/react';
 import Image from 'next/image';
+import { AiOutlineSearch } from 'react-icons/ai';
 
-export const NavBar = () => {
+type Props = {
+	onChange: (name:string) => string;
+};
+
+export const NavBar = ({ onChange }: Props) => {
+	console.log(onChange('hello'));
 	const { setTheme } = useNextTheme();
 	const { isDark } = useTheme();
+
+	const [pokemon, setPokemon] = useState('');
+
 	return (
 		<Container fluid justify='space-around'>
 			<Row>
@@ -26,11 +36,13 @@ export const NavBar = () => {
 						<Input
 							size='xs'
 							type='text'
-							labelRight='.org'
+							labelRight={<AiOutlineSearch />}
 							status='secondary'
 							width='10rem'
 							id='search'
 							aria-label='search'
+							onChange={(e) => setPokemon(e.target.value)}
+							value={pokemon}
 						/>
 					</Grid>
 					<Grid xs={2}>
