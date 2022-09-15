@@ -22,13 +22,14 @@ export const PokemonCards: React.FC<Props> = ({ image, name, id, theme }) => {
 
 	return (
 		<Card isPressable onClick={onClick} isHoverable>
-			<Card.Image
-				src={image}
-				width='100%'
-				height={140}
-				objectFit='contain'
-				alt='Card image background'
-			/>
+			<Card.Body css={{ height: '100px' }}>
+				<Card.Image
+					src={image}
+					width='100%'
+					height={100}
+					alt='Card image background'
+				/>
+			</Card.Body>
 			<Card.Footer>
 				<Row justify='space-between'>
 					<Text>#{id}</Text>

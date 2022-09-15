@@ -1,14 +1,12 @@
-import { useState, ChangeEventHandler, FormEventHandler } from 'react';
-import { Grid, Container, Row, Text, Input } from '@nextui-org/react';
+import { useState } from 'react';
+import { Grid, Container, Row, Text, Input, Image } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
-import { Switch, useTheme } from '@nextui-org/react';
-import Image from 'next/image';
+import { Switch, useTheme, Link } from '@nextui-org/react';
+
 import { AiOutlineSearch } from 'react-icons/ai';
-
-
+import NextLink from 'next/link';
 
 export const NavBar = () => {
-	
 	const { setTheme } = useNextTheme();
 	const { isDark } = useTheme();
 
@@ -18,19 +16,23 @@ export const NavBar = () => {
 		<Container fluid justify='space-around'>
 			<Row>
 				<Grid.Container alignItems='center'>
-					<Grid xs={5}>
+					<Grid xs={4}>
 						<Row align='center' justify='flex-start'>
-							<Image
-								src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png`}
-								alt='pokemon'
-								width={50}
-								height={50}
-							/>
+							<Link href='/'>
+								<>
+									<Image
+										src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png`}
+										alt='pokemon'
+										width={70}
+										height={70}
+									/>
 
-							<Text>List Pokemons</Text>
+									<Text color='white'>Pokémons</Text>
+								</>
+							</Link>
 						</Row>
 					</Grid>
-					<Grid xs={5}>
+					<Grid xs={4}>
 						<Input
 							size='xs'
 							type='text'
@@ -42,6 +44,13 @@ export const NavBar = () => {
 							onChange={(e) => setPokemon(e.target.value)}
 							value={pokemon}
 						/>
+					</Grid>
+					<Grid xs={2}>
+						<NextLink href='/favorites'>
+							<Link>
+								<Text color='white'>Favorites</Text>
+							</Link>
+						</NextLink>
 					</Grid>
 					<Grid xs={2}>
 						<Switch

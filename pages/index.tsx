@@ -15,12 +15,8 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 	const theme = useTheme();
 	const themeMemo = useMemo(() => theme, [theme]);
 
-	const onChange = (name: string) => {
-		return name;
-	};
-
 	return (
-		<Layout title='List Pokemons' onChange={onChange}>
+		<Layout title='List Pokemons'>
 			<Grid.Container gap={2} justify='flex-start'>
 				{pokemons.map(({ id, name, img }) => {
 					return (
