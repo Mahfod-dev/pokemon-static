@@ -1,4 +1,5 @@
 import { Card, Text, Row } from '@nextui-org/react';
+import { useRouter } from 'next/router';
 
 interface Props {
 	image: string;
@@ -13,8 +14,14 @@ interface Props {
 export const PokemonCards: React.FC<Props> = ({ image, name, id, theme }) => {
 	const { isDark } = theme;
 
+	const router = useRouter();
+
+	const onClick = () => {
+		router.push(`/pokemon/${id}`);
+	};
+
 	return (
-		<Card isPressable>
+		<Card isPressable onClick={onClick} isHoverable>
 			<Card.Image
 				src={image}
 				width='100%'

@@ -5,12 +5,10 @@ import { Switch, useTheme } from '@nextui-org/react';
 import Image from 'next/image';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-type Props = {
-	onChange: (name:string) => string;
-};
 
-export const NavBar = ({ onChange }: Props) => {
-	console.log(onChange('hello'));
+
+export const NavBar = () => {
+	
 	const { setTheme } = useNextTheme();
 	const { isDark } = useTheme();
 

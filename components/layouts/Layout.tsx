@@ -5,10 +5,9 @@ import { NavBar } from '../UI';
 interface Props {
 	title?: String;
 	children: React.ReactNode;
-	onChange: (name: string) => string;
 }
 
-export const Layout = ({ children, title, onChange }: Props) => {
+export const Layout = ({ children, title }: Props) => {
 	return (
 		<>
 			<Head>
@@ -23,7 +22,7 @@ export const Layout = ({ children, title, onChange }: Props) => {
 				/>
 				<meta name='keywords' content={`XXXX,pokemon,pokedex,${title}`} />
 			</Head>
-			<NavBar onChange={onChange} />
+			<NavBar />
 			<main>{children}</main>
 		</>
 	);
