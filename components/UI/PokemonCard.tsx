@@ -24,9 +24,10 @@ export const PokemonCards: React.FC<Props> = ({ image, name, id, theme }) => {
 		<Card isPressable onClick={onClick} isHoverable>
 			<Card.Body css={{ height: '100px' }}>
 				<Card.Image
-					src={image}
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
 					width='100%'
-					height={100}
+					height={500}
+					objectFit='initial'
 					alt='Card image background'
 				/>
 			</Card.Body>

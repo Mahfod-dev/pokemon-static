@@ -12,6 +12,7 @@ interface Props {
 }
 
 const HomePage: NextPage<Props> = ({ pokemons }) => {
+	
 	const theme = useTheme();
 	const themeMemo = useMemo(() => theme, [theme]);
 

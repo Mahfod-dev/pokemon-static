@@ -1,3 +1,3 @@
 export * from './NavBar';
-export * from './Card';
+export * from './PokemonCard';
 export * from './NoFavorites'
