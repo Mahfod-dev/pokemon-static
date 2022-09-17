@@ -1,6 +1,6 @@
 import { NextPage, GetStaticProps } from 'next';
 import { useMemo } from 'react';
-import { Grid, useTheme } from '@nextui-org/react';
+import { Grid, useTheme, Image } from '@nextui-org/react';
 import { PokemonCards } from '../components/UI';
 
 import { pokeApi } from '../api';
@@ -12,12 +12,13 @@ interface Props {
 }
 
 const HomePage: NextPage<Props> = ({ pokemons }) => {
-	
 	const theme = useTheme();
 	const themeMemo = useMemo(() => theme, [theme]);
 
 	return (
 		<Layout title='List Pokemons'>
+			<Image src='/img/banner.png' width={200} height={150} alt='banner' />
+
 			<Grid.Container gap={2} justify='flex-start'>
 				{pokemons.map(({ id, name, img }) => {
 					return (

@@ -9,50 +9,38 @@ import NextLink from 'next/link';
 export const NavBar = () => {
 	const { setTheme } = useNextTheme();
 	const { isDark } = useTheme();
-
+	console.log(isDark);
 	const [pokemon, setPokemon] = useState('');
 
-	return (
-		<Container fluid justify='space-around'>
-			<Row>
-				<Grid.Container alignItems='center'>
-					<Grid xs={4}>
-						<Row align='center' justify='flex-start'>
-							<Link href='/'>
-								<>
-									<Image
-										src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png`}
-										alt='pokemon'
-										width={70}
-										height={70}
-									/>
+	const color = isDark ? '#fff' : '#222';
 
-									<Text color='white'>Pokémons</Text>
-								</>
-							</Link>
-						</Row>
-					</Grid>
+	return (
+		<Container fluid justify='space-between'>
+			<Row>
+				<Grid.Container alignItems='center' justify='space-between'>
 					<Grid xs={4}>
-						<Input
-							size='xs'
-							type='text'
-							labelRight={<AiOutlineSearch />}
-							status='secondary'
-							width='10rem'
-							id='search'
-							aria-label='search'
-							onChange={(e) => setPokemon(e.target.value)}
-							value={pokemon}
-						/>
+						<Link href='/'>
+							<>
+								<Image
+									src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png`}
+									alt='pokemon'
+									width={70}
+									height={70}
+								/>
+
+								<Text color={color}>Pokémons</Text>
+							</>
+						</Link>
 					</Grid>
-					<Grid xs={2}>
+
+					<Grid xs={4}>
 						<NextLink href='/favorites'>
 							<Link>
-								<Text color='white'>Favorites</Text>
+								<Text color={color}>Favorites</Text>
 							</Link>
 						</NextLink>
 					</Grid>
-					<Grid xs={2}>
+					<Grid xs={4} justify='flex-end'>
 						<Switch
 							size='xs'
 							checked={isDark}

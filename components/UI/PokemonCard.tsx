@@ -17,7 +17,7 @@ export const PokemonCards: React.FC<Props> = ({ image, name, id, theme }) => {
 	const router = useRouter();
 
 	const onClick = () => {
-		router.push(`/pokemon/${id}`);
+		router.push(`/name/${name}`);
 	};
 
 	return (

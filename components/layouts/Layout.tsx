@@ -7,6 +7,8 @@ interface Props {
 	children: React.ReactNode;
 }
 
+const origin = typeof window === 'undefined' ? '' : window.location.origin;
+
 export const Layout = ({ children, title }: Props) => {
 	return (
 		<>
@@ -21,6 +23,12 @@ export const Layout = ({ children, title }: Props) => {
                 `}
 				/>
 				<meta name='keywords' content={`XXXX,pokemon,pokedex,${title}`} />
+				<meta property='og:title' content={`Information ${title}`} />
+				<meta property='og:description' content={`About ${title}`} />
+				<meta
+					property='og:image'
+					content={`${origin}/img/banner.png`}
+				/>
 			</Head>
 			<NavBar />
 			<main>{children}</main>
